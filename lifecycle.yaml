@@ -1,0 +1,36 @@
+---
+version: '0.0.2-alpha-1'
+
+
+environment:
+  webhooks:
+    - state: 'deployed'
+      name: 'e2e test'
+      description: 'some description'
+      type: 'codefresh'
+      pipelineId: '61fc3794d13092dd47178ca4'
+      trigger: 'heydoctor/web-app'
+      env:
+        branch: 'main'
+        SOURCE: 'yaml'
+        ID: '1'
+    - state: 'deployed'
+      name: 'synthetic test'
+      description: 'some description'
+      type: 'codefresh'
+      pipelineId: '61fc3794d13092dd47178ca4'
+      trigger: 'heydoctor/web-app'
+      env:
+        branch: 'main'
+        SOURCE: 'yaml'
+        ID: '2'
+
+services:
+  - name: 'lifecycle-test-app-docker'
+    github:
+      env:
+        ENV_SOURCE: 'yaml'
+        FOOBAR_KEY: '304870ujdfojdfjdlfdf'
+        DEP: '{{lifecycle-test-app-codefresh_internalHostname}}'
+        SHA: '{{lifecycle-test-app-docker_sha}}'
+        uuid: '{{lifecycle-test-app-codefresh_uuid}}'
