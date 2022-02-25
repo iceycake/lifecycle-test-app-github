@@ -26,7 +26,7 @@ environment:
         ID: '2'
 
 services:
-  - name: 'lifecycle-test-app-docker'
+  - name: 'lifecycle-test-app-github'
     github:
       env:
         ENV_SOURCE: 'yaml'
